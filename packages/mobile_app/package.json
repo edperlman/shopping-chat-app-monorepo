@@ -1,0 +1,17 @@
+{
+    "name": "mobile_app",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "expo start"
+    },
+    "dependencies": {
+        "expo": "^52.0.37",
+        "react": "18.2.0",
+        "react-native": "0.71.14"
+    },
+    "devDependencies": {
+        "@types/react": "~18.0.27",
+        "typescript": "^4.9.4"
+    }
+}

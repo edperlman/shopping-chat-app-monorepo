@@ -1,0 +1,14 @@
+{
+  "name": "shopping-chat-app-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/mobile_app",
+    "packages/retailer_dashboard"
+  ],
+  "scripts": {
+    "dev:mobile": "npm run start --workspace=mobile_app",
+    "dev:dashboard": "npm run dev --workspace=retailer_dashboard"
+  },
+  "license": "ISC"
+}
