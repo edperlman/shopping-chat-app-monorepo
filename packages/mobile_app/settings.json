@@ -1,0 +1,6 @@
+// C:\shopping-chat-app-monorepo\packages\mobile_app\.vscode\settings.json
+{
+    // Force TS server to use the local TypeScript in node_modules
+    "typescript.tsdk": "./node_modules/typescript/lib"
+  }
+  

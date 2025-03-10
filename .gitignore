@@ -44,3 +44,6 @@ coverage/
 
 # 9. Storybook (if applicable)
 storybook-static/
+
+# 10. In packages/mobile_app/.gitignore
+.env

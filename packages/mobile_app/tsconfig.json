@@ -1,4 +1,16 @@
+// C:\shopping-chat-app-monorepo\packages\mobile_app\tsconfig.json
 {
-  "compilerOptions": {},
-  "extends": "expo/tsconfig.base"
+  "extends": "expo/tsconfig.base",  // requires expo installed
+  "compilerOptions": {
+    "jsx": "react-native",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": ["."],
+  "exclude": [
+    "**/node_modules",
+    "**/build",
+    "**/dist"
+  ]
 }
