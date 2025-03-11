@@ -1,7 +1,21 @@
 {
-    "expo": {
-      "name": "mobile_app",
-      "slug": "mobile_app"
+  "expo": {
+    "name": "mobile_app",
+    "slug": "mobile_app",
+    "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "409e0de5-87b5-4d12-a410-a5d338087193"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "ai.miochat.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "ai.miochat.app"
     }
   }
-  
+}
