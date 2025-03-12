@@ -1,7 +1,6 @@
-// navigation/types.ts
+// packages/mobile_app/navigation/types.ts
 
 export type RootStackParamList = {
-    SignIn: undefined;
-    Home: undefined;
-  };
-  
+  SignIn: undefined;
+  Home: undefined;
+};

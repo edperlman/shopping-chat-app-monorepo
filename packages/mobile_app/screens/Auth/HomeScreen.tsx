@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
 // 1) Bring in the param-list type
-import { RootStackParamList } from '../navigation/types';
+import { RootStackParamList } from '../../navigation/types';
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 

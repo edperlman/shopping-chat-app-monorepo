@@ -1,25 +1,20 @@
-// App.tsx
+// packages/mobile_app/App.tsx
 import React from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-// 1) Import your typed param list
-import { RootStackParamList } from './navigation/types';
+// Import environment variables
+import { API_URL } from '@env';  // Ensure your .env + Babel config is correct
 
-// 2) Import screens
-import SignInScreen from './screens/SignInScreen';
-import HomeScreen from './screens/HomeScreen';
+// Import the dedicated theme file
+import { customTheme } from './styles/theme';
 
-// 3) Import environment variables from @env
-import { API_URL } from '@env';  // Ensure you created .env and Babel config for react-native-dotenv
+// Import the new RootNavigator
+import { RootNavigator } from './navigation/RootNavigator';
 
-// 4) Create a QueryClient for React Query
+// Create a QueryClient for React Query
 const queryClient = new QueryClient();
-
-// 5) Create the stack navigator using your RootStackParamList
-const Stack = createNativeStackNavigator<RootStackParamList>(); 
 
 export default function App() {
   // Optional: demonstrate the environment variable
@@ -27,20 +22,10 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <PaperProvider>
+      <PaperProvider theme={customTheme}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="SignIn">
-            <Stack.Screen
-              name="SignIn"
-              component={SignInScreen}
-              options={{ title: 'Sign In' }}
-            />
-            <Stack.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{ title: 'Home' }}
-            />
-          </Stack.Navigator>
+          {/* The RootNavigator includes our SignIn and Home screens */}
+          <RootNavigator />
         </NavigationContainer>
       </PaperProvider>
     </QueryClientProvider>
