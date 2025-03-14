@@ -1,11 +1,13 @@
+// packages/mobile_app/styles/SignUpStyles.ts
 import { StyleSheet } from 'react-native';
 
-export const signInStyles = StyleSheet.create({
+export const signUpStyles = StyleSheet.create({
   screenWrapper: {
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
   scrollContentContainer: {
+    // Keep top spacing consistent with SignIn
     paddingTop: 40,
     paddingBottom: 36,
     alignItems: 'center',
@@ -25,14 +27,14 @@ export const signInStyles = StyleSheet.create({
   title: {
     fontFamily: 'Urbanist',
     fontWeight: '700',
-    fontSize: 28,
+    fontSize: 28, // same as signIn title
     lineHeight: 34,
     color: '#212121',
     textAlign: 'center',
     marginBottom: 40,
   },
 
-  /* Input containers for dynamic approach (empty vs. filled) */
+  // Input containers (empty vs. filled)
   inputContainerEmpty: {
     width: 340,
     maxWidth: '90%',
@@ -86,18 +88,18 @@ export const signInStyles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  /* Sign in button states: disabled vs. enabled */
-  signInButtonDisabled: {
+  // Sign up button states: disabled vs. enabled
+  signUpButtonDisabled: {
     width: 340,
     maxWidth: '90%',
     height: 58,
-    backgroundColor: '#C4C4C4', // gray
+    backgroundColor: '#C4C4C4',
     borderRadius: 100,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 34,
   },
-  signInButtonEnabled: {
+  signUpButtonEnabled: {
     width: 340,
     maxWidth: '90%',
     height: 58,
@@ -107,7 +109,7 @@ export const signInStyles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 34,
   },
-  signInButtonText: {
+  signUpButtonText: {
     fontFamily: 'Urbanist',
     fontWeight: '700',
     fontSize: 16,
@@ -128,7 +130,7 @@ export const signInStyles = StyleSheet.create({
     lineHeight: 20,
     color: '#9E9E9E',
   },
-  signUpLink: {
+  signInLink: {
     fontFamily: 'Urbanist',
     fontWeight: '600',
     fontSize: 14,

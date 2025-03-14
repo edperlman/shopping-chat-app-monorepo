@@ -1,4 +1,4 @@
-// packages/mobile_app/screens/Auth/SignInScreen.tsx
+// packages/mobile_app/screens/Auth/SignUpScreen.tsx
 import React, { useState } from 'react';
 import {
   View,
@@ -12,68 +12,75 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { Checkbox, TextInput } from 'react-native-paper';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import { signInStyles } from '../../styles/SignInStyles';
+import { signUpStyles } from '../../styles/SignUpStyles';
 import { RootStackParamList } from '../../navigation/types';
 import SmileyIcon from '../../assets/smiley.png';
 
-type SignInScreenProps = NativeStackScreenProps<RootStackParamList, 'SignIn'>;
+type SignUpScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
 
-export default function SignInScreen({ navigation }: SignInScreenProps) {
+export default function SignUpScreen({ navigation }: SignUpScreenProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  // Check if fields are typed
   const isEmailFilled = email.trim().length > 0;
   const isPasswordFilled = password.trim().length > 0;
-  const isSignInEnabled = isEmailFilled && isPasswordFilled;
 
+  // If both filled => enable sign up
+  const isSignUpEnabled = isEmailFilled && isPasswordFilled;
+
+  // Input container style
   function getInputContainerStyle(isFilled: boolean) {
     return isFilled
-      ? signInStyles.inputContainerFilled
-      : signInStyles.inputContainerEmpty;
+      ? signUpStyles.inputContainerFilled
+      : signUpStyles.inputContainerEmpty;
   }
 
+  // Icon color
   function getIconColor(isFilled: boolean): string {
     return isFilled ? '#246BFD' : '#9E9E9E';
   }
 
-  const signInButtonStyle = isSignInEnabled
-    ? signInStyles.signInButtonEnabled
-    : signInStyles.signInButtonDisabled;
-
+  // Toggle password show/hide
   function toggleShowPassword() {
     setShowPassword((prev) => !prev);
   }
 
-  function handleSignIn() {
-    if (isSignInEnabled) {
-      // Navigate to ChatList after sign in
-      navigation.navigate('ChatList');
+  // Button style: enabled vs disabled
+  const signUpButtonStyle = isSignUpEnabled
+    ? signUpStyles.signUpButtonEnabled
+    : signUpStyles.signUpButtonDisabled;
+
+  // On pressing sign up => navigate to "EmptyChat"
+  function handleSignUp() {
+    if (isSignUpEnabled) {
+      navigation.navigate('EmptyChat');
     }
   }
 
-  function handleSignUp() {
-    navigation.navigate('SignUp');
+  function handleSignIn() {
+    navigation.navigate('SignIn');
   }
 
   return (
-    <SafeAreaView style={signInStyles.screenWrapper}>
+    <SafeAreaView style={signUpStyles.screenWrapper}>
       <ScrollView
-        contentContainerStyle={signInStyles.scrollContentContainer}
+        contentContainerStyle={signUpStyles.scrollContentContainer}
         showsVerticalScrollIndicator={false}
       >
-        <View style={signInStyles.topBar}>
+        <View style={signUpStyles.topBar}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Ionicons name="arrow-back" size={24} color="#212121" />
           </TouchableOpacity>
         </View>
 
-        <View style={signInStyles.logoContainer}>
+        <View style={signUpStyles.logoContainer}>
           <Image source={SmileyIcon} style={{ width: 100, height: 100 }} />
         </View>
 
-        <Text style={signInStyles.title}>Login to Your Account</Text>
+        <Text style={signUpStyles.title}>Create New Account</Text>
 
         {/* Email container */}
         <View style={getInputContainerStyle(isEmailFilled)}>
@@ -92,7 +99,7 @@ export default function SignInScreen({ navigation }: SignInScreenProps) {
             activeUnderlineColor="transparent"
             autoCapitalize="none"
             keyboardType="email-address"
-            style={signInStyles.textInput}
+            style={signUpStyles.textInput}
           />
         </View>
 
@@ -112,7 +119,7 @@ export default function SignInScreen({ navigation }: SignInScreenProps) {
             underlineColor="transparent"
             activeUnderlineColor="transparent"
             secureTextEntry={!showPassword}
-            style={signInStyles.textInput}
+            style={signUpStyles.textInput}
           />
           <TouchableOpacity onPress={toggleShowPassword}>
             <Ionicons
@@ -124,9 +131,9 @@ export default function SignInScreen({ navigation }: SignInScreenProps) {
           </TouchableOpacity>
         </View>
 
-        <View style={signInStyles.rememberRow}>
+        <View style={signUpStyles.rememberRow}>
           <TouchableOpacity
-            style={signInStyles.checkboxBox}
+            style={signUpStyles.checkboxBox}
             onPress={() => setRememberMe(!rememberMe)}
           >
             {rememberMe && (
@@ -143,14 +150,16 @@ export default function SignInScreen({ navigation }: SignInScreenProps) {
           </Text>
         </View>
 
-        <TouchableOpacity onPress={handleSignIn} style={signInButtonStyle}>
-          <Text style={signInStyles.signInButtonText}>Sign in</Text>
+        {/* Sign up button */}
+        <TouchableOpacity onPress={handleSignUp} style={signUpButtonStyle}>
+          <Text style={signUpStyles.signUpButtonText}>Sign up</Text>
         </TouchableOpacity>
 
-        <View style={signInStyles.bottomRow}>
-          <Text style={signInStyles.subText}>Don’t have an account?</Text>
-          <TouchableOpacity onPress={handleSignUp}>
-            <Text style={signInStyles.signUpLink}> Sign up</Text>
+        {/* Already have an account? Sign in row */}
+        <View style={signUpStyles.bottomRow}>
+          <Text style={signUpStyles.subText}>Already have an account?</Text>
+          <TouchableOpacity onPress={handleSignIn}>
+            <Text style={signUpStyles.signInLink}> Sign in</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
