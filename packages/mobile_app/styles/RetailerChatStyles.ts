@@ -95,7 +95,7 @@ export const retailerChatStyles = StyleSheet.create({
     color: '#9E9E9E',
   },
 
-  /* ---------- CTA Buttons ---------- */
+  /* ---------- CTA Buttons (Full-width style) ---------- */
   ctaButton: {
     width: '80%',
     alignSelf: 'center',
@@ -116,10 +116,10 @@ export const retailerChatStyles = StyleSheet.create({
     color: '#246BFD',
   },
   ctaButtonSelected: {
-    backgroundColor: '#246BFD', 
+    backgroundColor: '#246BFD',
   },
   ctaButtonTextSelected: {
-    color: '#FFFFFF', 
+    color: '#FFFFFF',
   },
 
   /* ---------- Bottom Input Bar ---------- */
@@ -189,6 +189,23 @@ export const retailerChatStyles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: 12,
   },
+
+  /* ---------- Smaller inline CTA for share or budget options ---------- */
+  smallCtaButton: {
+    backgroundColor: '#E9F0FF',
+    borderRadius: 100,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    marginBottom: 12,
+  },
+  smallCtaButtonText: {
+    fontFamily: 'Urbanist',
+    fontWeight: '700',
+    fontSize: 16,
+    color: '#246BFD',
+  },
+
+  // Budget option inherits from smallCtaButton
   budgetOptionButton: {
     backgroundColor: '#E9F0FF',
     borderRadius: 100,
@@ -203,7 +220,7 @@ export const retailerChatStyles = StyleSheet.create({
     color: '#246BFD',
   },
 
-  /* ---------- NEW: Discount bubble after budget selection ---------- */
+  /* ---------- Discount bubble after budget selection ---------- */
   discountBubbleContainer: {
     alignSelf: 'flex-start',
     maxWidth: '75%',
@@ -223,5 +240,57 @@ export const retailerChatStyles = StyleSheet.create({
     lineHeight: 24,
     color: '#212121',
     marginBottom: 6,
+  },
+
+  /* ---------- System Message with Inline CTAs ---------- */
+  systemBubbleContainer: {
+    alignSelf: 'flex-start',
+    maxWidth: '75%',
+    backgroundColor: '#F5F5F5',
+    borderRadius: 20,
+    borderTopLeftRadius: 8,
+    paddingHorizontal: 20,
+    paddingVertical: 14,
+    marginLeft: 24,
+    marginRight: 24,
+    marginBottom: 16,
+  },
+  systemBubbleText: {
+    fontFamily: 'Urbanist',
+    fontWeight: '500',
+    fontSize: 16,
+    lineHeight: 24,
+    color: '#212121',
+    marginBottom: 8,
+  },
+  inlineCTARow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 8,
+  },
+  inlineCTAButton: {
+    backgroundColor: '#E9F0FF',
+    borderRadius: 100,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    marginRight: 10,
+    marginBottom: 10,
+  },
+  inlineCTAText: {
+    fontFamily: 'Urbanist',
+    fontWeight: '700',
+    fontSize: 16,
+    color: '#246BFD',
+  },
+
+  /* ---------- Disclaimer text style ---------- */
+  disclaimerText: {
+    fontFamily: 'Urbanist',
+    fontWeight: '400',
+    fontSize: 13,
+    color: '#757575',
+    marginTop: -4,
+    marginBottom: 10,
+    lineHeight: 18,
   },
 });
